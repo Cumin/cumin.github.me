@@ -243,6 +243,116 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/02/使用adb查看小米设备的代号/" itemprop="url">
+                  使用adb查看小米设备的代号
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-02T10:08:44+08:00" content="2016-06-02">
+              2016-06-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/02/使用adb查看小米设备的代号/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/使用adb查看小米设备的代号/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          下载MIUI线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。使用 adb tools 就可以轻松获取到
+1adb shell getprop | ack name
+12345678[gsm.sim.operator.default-name.2]: [][gsm.sim.operator.default-name]: [,中国移动][net.bt.name]: [Android][net.hostname]: [RedmiNote3-hongmisho][ro.build.version.all_codenames]: [REL][ro.build.version.codename]: [REL][ro.miui.ui.version.name]: [V7][ro.product.name]: [hennessy]
+比如 [ro.product.name]: [hennessy] 这个就是小米内部的代号了。红米 Note3 代号为 hennessy
+
+          
+
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/02/使用adb查看小米设备的代号/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/31/编译安装PHP/" itemprop="url">
                   编译安装PHP
                 </a>
@@ -1252,115 +1362,6 @@ git config --global credential.helper store
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/31/first-post/" itemprop="url">
-                  第一篇的开始
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-31T18:29:55+08:00" content="2016-05-31">
-              2016-05-31
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/31/first-post/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/first-post/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Hi,
-博客就这么开通了。
-记录自己随时想记录的。
-
-          
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/05/31/first-post/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1406,7 +1407,7 @@ git config --global credential.helper store
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1416,7 +1417,7 @@ git config --global credential.helper store
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
