@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -99,7 +99,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -293,26 +293,14 @@
 
       
         
-          
-            <h1 id="Memcache是什么？"><a href="#Memcache是什么？" class="headerlink" title="Memcache是什么？"></a>Memcache是什么？</h1><p>Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。<br>Memcached是简单而强大的。它简单的设计促进迅速部署，易于发展所面临的问题，解决了很多大型数据缓存。它的API可供最流行的语言。<br>Memcache官方网站：<a href="http://memcached.org" target="_blank" rel="external">http://memcached.org</a></p>
+          <p><img src="https://www.datadoghq.com/wp-content/uploads/2014/05/me.png" alt="alt"></p>
+<h1 id="Memcache是什么？"><a href="#Memcache是什么？" class="headerlink" title="Memcache是什么？"></a>Memcache是什么？</h1><p>Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。<br>Memcached是简单而强大的。它简单的设计促进迅速部署，易于发展所面临的问题，解决了很多大型数据缓存。它的API可供最流行的语言。<br>Memcache官方网站：<a href="http://memcached.org">http://memcached.org</a></p>
 <h1 id="Memcached又是什么？"><a href="#Memcached又是什么？" class="headerlink" title="Memcached又是什么？"></a>Memcached又是什么？</h1><p>Memcache是该系统的项目名称，Memcached是该系统的主程序文件（字母d可以理解为daemon），以守护程序方式运行于一个或多个服务器中，随时接受客户端的连接操作，使用共享内存存取数据。</p>
-<h2 id="memcache客户端-php"><a href="#memcache客户端-php" class="headerlink" title="memcache客户端(php)"></a>memcache客户端(php)</h2><p>PHP有两个memcache客户端：php memcache和php memcached。<br>php memcache独立用php实现，是老客户端，从我们实践中已发现有多个问题，而且功能少，属性也可设置的少；<br><a href="http://pecl.php.net/package/memcache" target="_blank" rel="external">http://pecl.php.net/package/memcache</a><br>php memcached是基于原生的c的libmemcached的扩展，更加完善，建议替换为php memcached。<br><a href="http://pecl.php.net/package/memcached" target="_blank" rel="external">http://pecl.php.net/package/memcached</a></p>
-<h3 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h3><blockquote>
-<p><a href="http://drops.wooyun.org/papers/865" target="_blank" rel="external">http://drops.wooyun.org/papers/865</a> 参考这个安全信息<br><a href="http://blog.linuxeye.com/345.html" target="_blank" rel="external">http://blog.linuxeye.com/345.html</a></p>
-</blockquote>
-<h2 id="安装libevent-通常已经安装了-看看-usr-include-下有没"><a href="#安装libevent-通常已经安装了-看看-usr-include-下有没" class="headerlink" title="安装libevent 通常已经安装了 看看 /usr/include 下有没"></a>安装libevent 通常已经安装了 看看 <code>/usr/include</code> 下有没</h2><ul>
-<li><a href="http://monkey.org/~provos/libevent/" target="_blank" rel="external">http://monkey.org/~provos/libevent/</a></li>
-<li><a href="http://libevent.org/" target="_blank" rel="external">http://libevent.org/</a></li>
-<li><code>./configure --prefix=/usr/include/libevent</code></li>
-</ul>
-<h2 id="安装memcached"><a href="#安装memcached" class="headerlink" title="安装memcached"></a>安装memcached</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/memcached --with-libevent=/usr/include/libevent</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">ln -s /usr/local/memcached/bin/memcached /usr/bin/memcached</span><br><span class="line"></span><br><span class="line">cp -a memcached-install-dir/scripts/memcached.sysv /etc/init.d/memcached</span><br><span class="line"></span><br><span class="line">chkconfig memcached on</span><br><span class="line"></span><br><span class="line">mkdir -p /var/run/memcached</span><br></pre></td></tr></table></figure>
-<h2 id="启动memcached"><a href="#启动memcached" class="headerlink" title="启动memcached:"></a>启动memcached:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service memcached start</span><br><span class="line">Or</span><br><span class="line">memcached -p 11211 -l 127.0.0.1 -d -u root -P /var/run/memcached.pid -m 64M -c 1024</span><br></pre></td></tr></table></figure>
-<h2 id="参数的解释："><a href="#参数的解释：" class="headerlink" title="参数的解释："></a>参数的解释：</h2><blockquote>
-<p> -p memcached监听的TCP端口<br>  -l 监听的ip地址，127.0.0.1是本机，当然也可以写上你的服务器IP，如：10.0.0.10，这是我服务器的IP地址，如果你需要多个服务器都能够读取这台memcached的缓存数据，那么就必须设定这个ip<br>  -d 以daemon方式运行，将程序放入后台<br>  -u memcached的运行用户，我设定的是nobody<br>  -P memcached的pid文件路径<br>  -m memcached可以使用的最大内存数量<br>  -c memcached同时可以接受的最大的连接数<br>如果你希望以socket方式来访问memcached，那么在启动的时候就必须去掉 -l和-p参数，并加上-s参数：</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-s memcached的socket文件路径</span><br><span class="line">iptables 指定 ip 可以访问</span><br><span class="line">vim /etc/sysconfig/iptables</span><br><span class="line">-A INPUT -p tcp -s 10.138.106.118 --dport 11211 -j ACCEPT</span><br><span class="line">-A INPUT -p udp -s 10.138.106.118 --dport 11211 -j ACCEP</span><br></pre></td></tr></table></figure>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/02/安装Memcache/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -410,45 +398,12 @@
 
       
         
-          
-            <h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils nfs-utils-lib rpcbind</span><br><span class="line">vim /etc/exports 加入共享目录</span><br><span class="line"></span><br><span class="line">/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.* --</span><br><span class="line"></span><br><span class="line">chkconfig nfs on</span><br><span class="line">chkconfig rpcbind  on</span><br><span class="line"></span><br><span class="line">service rpcbind start</span><br><span class="line">service nfs start</span><br></pre></td></tr></table></figure>
-<h2 id="检查共享的目录-对不对"><a href="#检查共享的目录-对不对" class="headerlink" title="检查共享的目录 对不对"></a>检查共享的目录 对不对</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exportfs</span><br></pre></td></tr></table></figure>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>修改了 <code>/etc/exports</code> 之后并不需要重新启动服务，只要重新加载就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">exportfs[-aruv]</span><br><span class="line">参数 含义</span><br><span class="line">a 全部挂载(或卸载)/etc/exports档案内的设定</span><br><span class="line">r 重新挂载/etc/exports 里面的设定，也同步的更新/etc/exports和/var/lib/nfs/xtab里面的内容</span><br><span class="line">u 卸载某一目录</span><br><span class="line">v 在export的时候，将分享的目录显示到荧屏上</span><br><span class="line">exportfs -a        // 全部挂载</span><br><span class="line">#exportfs -rv     //重新export一次</span><br><span class="line">#exportfs -au    //全部卸载</span><br></pre></td></tr></table></figure></p>
-<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><h2 id="CentOS-1"><a href="#CentOS-1" class="headerlink" title="CentOS"></a>CentOS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils nfs-utils-lib</span><br><span class="line">showmount -e 192.168.147.128 // 测试能不能挂载</span><br><span class="line">mkdir -p /home/www/wechat/</span><br><span class="line">mount 192.168.147.128:/home/www/wechat /home/www/wechat/</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df -h	查看挂载</span><br><span class="line">mount -a 挂载全部</span><br></pre></td></tr></table></figure>
-<h3 id="取消挂载"><a href="#取消挂载" class="headerlink" title="取消挂载"></a>取消挂载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount 192.168.147.128:/home/www/wechat</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果遇到：umount.nfs: /usr/local/test: device is busy<br>fuser -m -v /mount/path/to</p>
-</blockquote>
-<h3 id="常见NFS故障解决"><a href="#常见NFS故障解决" class="headerlink" title="常见NFS故障解决"></a>常见NFS故障解决</h3><ul>
-<li>can’t contactportmapper: RPC:Remotesystem error-Connection refused：<blockquote>
-<p>出现这个错误信息是由于SEVER端的PORTMAP没有启动。</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>mountclntudp_create: RPC: Programnotregistered：</p>
-<blockquote>
-<p>NFS没有启动起来，可以用showmout-ehost命令来检查NFSSERVER是否正常启动起来。</p>
-</blockquote>
-</li>
-<li><p>mount: localhost:/home/test failed, reason given by server:Permission denied：</p>
-<blockquote>
-<p>这个提示是当client要mountnfsserver时可能出现的提示，意思是说本机没有权限去mount nfsserver上的目录。解决方法当然是去修改NFSSERVER咯。</p>
-</blockquote>
-</li>
-</ul>
-<ul>
-<li><p>被防火墙搞掉</p>
-<blockquote>
-<p>这个原因很多人都忽视了，在有严格要求的网络环境中，我们一般会关闭linux上的所有端口，当需要使用哪个端口的时候才会去打开。而NFS默认是使用111端口，所以我们先要检测是否打开了这个端口，另外也要检查TCP_Wrappers的设定。<br>重新设置防火墙,包括iptables与TCP_Wrappers,因为激活了<code>portmap</code>，所以端口<code>111</code>必须提供出去.因此在<code>iptablesrules</code>中，要增加:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables-AINPUT-pTCP –dport111-jACCEPT</span><br><span class="line">iptables-AINPUT-pUDP –dport111-jACCEPT</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>如果还不行，那就是<code>TCP_Wrappers</code>的问题，检查<code>/etc/hosts.deny</code>，如果有一行是<code>:ALL:ALL: deny</code>那就必须在<code>/etc/hosts.allow</code>中增加:<code>portmap:ALL:allow</code></p>
-</li>
-</ul>
-
-          
+          <h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/02/NFS挂载配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -546,16 +501,18 @@
 
       
         
-          
-            <ol>
+          <ol>
 <li>adb no permissions<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo adb kill-server</span><br><span class="line">sudo adb start-server</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <blockquote>
 <p>What works for me is to kill and start the adb server again. On linux: sudo adb kill-server and then sudo adb start-server. Then it will detect nearly every device out of the box.</p>
 </blockquote>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/02/使用adb工具常见错误提示/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -653,13 +610,12 @@
 
       
         
-          
-            <p>下载<strong>MIUI</strong>线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。<br>使用 <code>adb tools</code> 就可以轻松获取到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell getprop | ack name</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[gsm.sim.operator.default-name.2]: []</span><br><span class="line">[gsm.sim.operator.default-name]: [,中国移动]</span><br><span class="line">[net.bt.name]: [Android]</span><br><span class="line">[net.hostname]: [RedmiNote3-hongmisho]</span><br><span class="line">[ro.build.version.all_codenames]: [REL]</span><br><span class="line">[ro.build.version.codename]: [REL]</span><br><span class="line">[ro.miui.ui.version.name]: [V7]</span><br><span class="line">[ro.product.name]: [hennessy]</span><br></pre></td></tr></table></figure>
-<p>比如 <code>[ro.product.name]: [hennessy]</code> 这个就是小米内部的代号了。红米 Note3 代号为 <code>hennessy</code></p>
-
-          
+          <p>下载<strong>MIUI</strong>线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。<br>使用 <code>adb tools</code> 就可以轻松获取到</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/02/使用adb查看小米设备的代号/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -757,58 +713,13 @@
 
       
         
-          
-            <ul>
-<li>先安装依赖</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ make cmake autoconf automake</span><br><span class="line">yum -y install zlib zlib-devel curl curl-devel bison bison-devel</span><br><span class="line">yum -y install libevent libevent-devel libcurl-devel libmcrypt mcrypt libmcrypt-devel mhash-devel libssl-dev libxml2 libxml2-devel libtool libiconv libxpm-dev libjpeg libjpeg-dev libpng libpng-devel libtiff-devel libwmf-deve</span><br><span class="line">yum -y install tcl-devel ghostscript-devel t1lib</span><br><span class="line">yum -y install fontconfig-devel freetype freetype-devel  pcre-devel</span><br><span class="line">yum -y install openssl-devel bison readline readline-devel</span><br><span class="line">yum -y install glibc glibc-devel glib2 glib2-devel gdbm-devel gd gd2 gd-devel gd2-devel gmp-devel</span><br><span class="line">yum -y install perl-devel perl-ExtUtils-Embed</span><br><span class="line">yum -y install &quot;GeoIP*&quot;</span><br><span class="line">yum -y install vim zsh screen acl ctags unzip wget htop git</span><br><span class="line">yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers make</span><br><span class="line">yum -y install links</span><br><span class="line">yum -y install  gcc gcc-c++ ncurses-devel perl</span><br><span class="line">yum -y install gcc gcc-c++ autoconf libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glibc glibc-devel glib2 glib2-devel bzip2 bzip2-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel openldap openldap-devel nss_ldap openldap-clients openldap-servers gd gd2 gd-devel gd2-devel perl-CPAN pcre-devel</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>新建系统用户 <code>useradd www -s /sbin/nologin</code></p>
-</li>
-<li><p>安装PHP</p>
-<ol>
-<li>下载PHP，解压进入</li>
-<li><p>编译参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/php \</span><br><span class="line">--with-config-file-path=/usr/local/php/etc \</span><br><span class="line">--enable-sockets \</span><br><span class="line">--enable-mbstring \</span><br><span class="line">--enable-fpm \</span><br><span class="line">--enable-bcmath \</span><br><span class="line">--enable-zip \</span><br><span class="line">--enable-ftp \</span><br><span class="line">--enable-soap \</span><br><span class="line">--enable-shmop \</span><br><span class="line">--enable-sysvsem \</span><br><span class="line">--enable-sysvshm \</span><br><span class="line">--enable-sysvmsg \</span><br><span class="line">--enable-xml \</span><br><span class="line">--enable-dom \</span><br><span class="line">--enable-exif \</span><br><span class="line">--enable-pcntl \</span><br><span class="line">--enable-opcache \</span><br><span class="line">--enable-gd-native-ttf \</span><br><span class="line">--with-fpm-user=www \</span><br><span class="line">--with-fpm-group=www \</span><br><span class="line">--with-mysql=mysqlnd \</span><br><span class="line">--with-mysqli=mysqlnd \</span><br><span class="line">--with-pdo-mysql=mysqlnd \</span><br><span class="line">--with-pear \</span><br><span class="line">--with-pcre-regex \</span><br><span class="line">--with-readline \</span><br><span class="line">--with-mcrypt \</span><br><span class="line">--with-mhash \</span><br><span class="line">--with-gmp \</span><br><span class="line">--with-zlib \</span><br><span class="line">--with-gettext \</span><br><span class="line">--with-iconv \</span><br><span class="line">--with-imap-ssl \</span><br><span class="line">--with-bz2 \</span><br><span class="line">--with-pear \</span><br><span class="line">--with-gd \</span><br><span class="line">--with-xmlrpc \</span><br><span class="line">--with-curl \</span><br><span class="line">--with-openssl \</span><br><span class="line">--with-libxml-dir \</span><br><span class="line">--with-freetype-dir \</span><br><span class="line">--with-jpeg-dir=/usr/include/jpeg \</span><br><span class="line">--with-png-dir</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>出现的一些错误</p>
-<ul>
-<li><code>configure: error: jpeglib.h not found</code><blockquote>
-<p>去网站 <a href="http://www.ijg.org/" target="_blank" rel="external">http://www.ijg.org/</a> 下载源码。我用的版本是jpegsrc.v8d.tar.gz，下载解压进入。<br><code>./configure --prefix=/usr/include/jpeg; make &amp;&amp; make install</code></p>
-</blockquote>
-</li>
-<li><code>configure: error: mcrypt.h not found. Please reinstall libmcrypt.</code><blockquote>
-<p>去网站<a href="http://mcrypt.hellug.gr/lib/index.html" target="_blank" rel="external">http://mcrypt.hellug.gr/lib/index.html</a> 的下载源码，我下的版本是libmcrypt-2.5.7.tar.gz; 下载解压进入。<br><code>./configure; make &amp;&amp; make install</code><br>重新编译php，这时增加参数<code>--with-mcrypt</code></p>
-</blockquote>
-</li>
-<li>[参考来源]：(<a href="http://www.cnblogs.com/alexqdh/archive/2012/11/20/2776017.html" target="_blank" rel="external">http://www.cnblogs.com/alexqdh/archive/2012/11/20/2776017.html</a>)</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li><p>编译完成后</p>
-<ol>
-<li><p>复制 php.ini 到安装目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -a install-php-dir/php.ini-development /usr/local/php/etc/php.ini</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加php-fpm到系统启动项</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp -a init.d.php-fpm /etc/init.d/php-fpm</span><br><span class="line">chkconfig php-fpm on</span><br><span class="line">service php-fpm start</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>其他配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php.ini expose_php = Off</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>决定是否暴露 PHP 被安装在服务器上（如: 在 Web 服务器的信息头中加上其签名：X-Powered-By: PHP/5.3.7)</p>
-<ul>
-<li>开启opcache<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[opcache]</span><br><span class="line">zend_extension=opcache.so</span><br><span class="line">opcache.enable=1</span><br><span class="line">opcache.memory_consumption=128</span><br><span class="line">opcache.interned_strings_buffer=8</span><br><span class="line">opcache.max_accelerated_files=4000</span><br><span class="line">opcache.revalidate_freq=60</span><br><span class="line">opcache.fast_shutdown=1</span><br><span class="line">opcache.enable_cli=1</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-
-          
+          <ul>
+<li>先安装依赖
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/31/编译安装PHP/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -907,7 +818,8 @@
       
         
           
-            <h1 id="创建分支"><a href="#创建分支" class="headerlink" title="﻿创建分支"></a>﻿创建分支</h1><h2 id="创建一个新的test分支"><a href="#创建一个新的test分支" class="headerlink" title="创建一个新的test分支"></a>创建一个新的test分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch test</span><br></pre></td></tr></table></figure>
+            <a id="more"></a>
+<h1 id="创建分支"><a href="#创建分支" class="headerlink" title="﻿创建分支"></a>﻿创建分支</h1><h2 id="创建一个新的test分支"><a href="#创建一个新的test分支" class="headerlink" title="创建一个新的test分支"></a>创建一个新的test分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch test</span><br></pre></td></tr></table></figure>
 <h2 id="创建一个test分支并切换过去"><a href="#创建一个test分支并切换过去" class="headerlink" title="创建一个test分支并切换过去"></a>创建一个test分支并切换过去</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b test</span><br></pre></td></tr></table></figure>
 <h1 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h1><h2 id="显示当前所在的分支"><a href="#显示当前所在的分支" class="headerlink" title="显示当前所在的分支"></a>显示当前所在的分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
 <h1 id="选择-test-分支"><a href="#选择-test-分支" class="headerlink" title="选择 test 分支"></a>选择 test 分支</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout test</span><br></pre></td></tr></table></figure>
@@ -1121,11 +1033,13 @@
 
       
         
-          
-            <h1 id="给git上代理很简单，命令一下就可以了，以lantern代理如下"><a href="#给git上代理很简单，命令一下就可以了，以lantern代理如下" class="headerlink" title="给git上代理很简单，命令一下就可以了，以lantern代理如下:"></a>给git上代理很简单，命令一下就可以了，以lantern代理如下:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global http.proxy 127.0.0.1:8787</span><br><span class="line">$ git config --global https.proxy 127.0.0.1:8787</span><br></pre></td></tr></table></figure>
+          <h1 id="给git上代理很简单，命令一下就可以了，以lantern代理如下"><a href="#给git上代理很简单，命令一下就可以了，以lantern代理如下" class="headerlink" title="给git上代理很简单，命令一下就可以了，以lantern代理如下:"></a>给git上代理很简单，命令一下就可以了，以lantern代理如下:</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global http.proxy 127.0.0.1:8787</span><br><span class="line">$ git config --global https.proxy 127.0.0.1:8787</span><br></pre></td></tr></table></figure>
 <h1 id="取消代理也很简单，设置为空即可"><a href="#取消代理也很简单，设置为空即可" class="headerlink" title="取消代理也很简单，设置为空即可"></a>取消代理也很简单，设置为空即可</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global http.proxy &quot;&quot;</span><br></pre></td></tr></table></figure>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/31/给git设置代理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1223,16 +1137,12 @@
 
       
         
-          
-            <p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。</p>
-<h1 id="查看当前远程仓库地址"><a href="#查看当前远程仓库地址" class="headerlink" title="查看当前远程仓库地址"></a>查看当前远程仓库地址</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  https://github.com/getlantern/lantern.git (fetch)</span><br><span class="line">origin  https://github.com/getlantern/lantern.git (push)</span><br></pre></td></tr></table></figure>
-<h1 id="更换一个-remote-url"><a href="#更换一个-remote-url" class="headerlink" title="更换一个 remote url"></a>更换一个 remote url</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@xxx.xxx.xxx.xxx:/git/xxx.git</span><br></pre></td></tr></table></figure>
-<h1 id="新增一个增加-remote-url"><a href="#新增一个增加-remote-url" class="headerlink" title="新增一个增加 remote url"></a>新增一个增加 remote url</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. git remote add origin https://github.com/Cumin/XXX.git</span><br><span class="line">2. git branch --set-upstream-to=origin/masteer master</span><br><span class="line">3. git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
-<p>以上命令执行完就ok了</p>
-<p><code>git pull</code></p>
-
-          
+          <p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/31/git-remote-url/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1330,37 +1240,12 @@
 
       
         
-          
-            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="源码下载地址-git"><a href="#源码下载地址-git" class="headerlink" title="源码下载地址 git"></a>源码下载地址 <a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank" rel="external">git</a></h2><h2 id="需要安装的依赖"><a href="#需要安装的依赖" class="headerlink" title="需要安装的依赖"></a>需要安装的依赖</h2><ul>
-<li><p>CentOs</p>
-<ul>
-<li><code>yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel</code></li>
-</ul>
-</li>
-<li><p>Ubuntu</p>
-<ul>
-<li><code>sudo apt-get install libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="In-order-to-be-able-to-add-the-documentation-in-various-formats-doc-html-info-these-additional-dependencies-are-required"><a href="#In-order-to-be-able-to-add-the-documentation-in-various-formats-doc-html-info-these-additional-dependencies-are-required" class="headerlink" title="In order to be able to add the documentation in various formats (doc, html, info), these additional dependencies are required:"></a>In order to be able to add the documentation in various formats (doc, html, info), these additional dependencies are required:</h2><ul>
-<li><p>CentOs</p>
-<ul>
-<li><code>yum install asciidoc xmlto docbook2x</code></li>
-</ul>
-</li>
-<li><p>Ubuntu</p>
-<ul>
-<li><code>sudo apt-get install asciidoc xmlto docbook2x</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="编译-Build"><a href="#编译-Build" class="headerlink" title="编译 Build"></a>编译 Build</h2><blockquote>
-<p><strong>Note</strong> 使用 Vagrant 共享的目录会有权限问题，请移动其他目录来安装</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ tar -zxf git-2.0.0.tar.gz</span><br><span class="line">$ cd git-2.0.0</span><br><span class="line">$ make configure</span><br><span class="line">$ ./configure --prefix=/usr/local/git</span><br><span class="line">$ make all doc info</span><br><span class="line">$ sudo make install install-doc install-html install-info</span><br></pre></td></tr></table></figure>
-
-          
+          <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="源码下载地址-git"><a href="#源码下载地址-git" class="headerlink" title="源码下载地址 git"></a>源码下载地址 <a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git</a></h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/31/编译安装Git/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1493,7 +1378,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -1558,6 +1443,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
 
   
 

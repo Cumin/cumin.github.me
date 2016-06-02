@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -84,23 +84,23 @@
 
 
 
-<meta name="description" content="服务端CentOS12345678910yum install -y nfs-utils nfs-utils-lib rpcbindvim /etc/exports 加入共享目录/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.*">
+<meta name="description" content="服务端CentOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NFS挂载配置">
 <meta property="og:url" content="http://cuminlo.github.io/2016/06/02/NFS挂载配置/index.html">
 <meta property="og:site_name" content="CuminLo Blog">
-<meta property="og:description" content="服务端CentOS12345678910yum install -y nfs-utils nfs-utils-lib rpcbindvim /etc/exports 加入共享目录/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.*">
-<meta property="og:updated_time" content="2016-06-02T05:25:12.402Z">
+<meta property="og:description" content="服务端CentOS">
+<meta property="og:updated_time" content="2016-06-02T05:55:59.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NFS挂载配置">
-<meta name="twitter:description" content="服务端CentOS12345678910yum install -y nfs-utils nfs-utils-lib rpcbindvim /etc/exports 加入共享目录/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.*">
+<meta name="twitter:description" content="服务端CentOS">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -288,7 +288,8 @@
       
 
       
-        <h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils nfs-utils-lib rpcbind</span><br><span class="line">vim /etc/exports 加入共享目录</span><br><span class="line"></span><br><span class="line">/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.* --</span><br><span class="line"></span><br><span class="line">chkconfig nfs on</span><br><span class="line">chkconfig rpcbind  on</span><br><span class="line"></span><br><span class="line">service rpcbind start</span><br><span class="line">service nfs start</span><br></pre></td></tr></table></figure>
+        <h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils nfs-utils-lib rpcbind</span><br><span class="line">vim /etc/exports 加入共享目录</span><br><span class="line"></span><br><span class="line">/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.* --</span><br><span class="line"></span><br><span class="line">chkconfig nfs on</span><br><span class="line">chkconfig rpcbind  on</span><br><span class="line"></span><br><span class="line">service rpcbind start</span><br><span class="line">service nfs start</span><br></pre></td></tr></table></figure>
 <h2 id="检查共享的目录-对不对"><a href="#检查共享的目录-对不对" class="headerlink" title="检查共享的目录 对不对"></a>检查共享的目录 对不对</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exportfs</span><br></pre></td></tr></table></figure>
 <h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>修改了 <code>/etc/exports</code> 之后并不需要重新启动服务，只要重新加载就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">exportfs[-aruv]</span><br><span class="line">参数 含义</span><br><span class="line">a 全部挂载(或卸载)/etc/exports档案内的设定</span><br><span class="line">r 重新挂载/etc/exports 里面的设定，也同步的更新/etc/exports和/var/lib/nfs/xtab里面的内容</span><br><span class="line">u 卸载某一目录</span><br><span class="line">v 在export的时候，将分享的目录显示到荧屏上</span><br><span class="line">exportfs -a        // 全部挂载</span><br><span class="line">#exportfs -rv     //重新export一次</span><br><span class="line">#exportfs -au    //全部卸载</span><br></pre></td></tr></table></figure></p>
 <h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><h2 id="CentOS-1"><a href="#CentOS-1" class="headerlink" title="CentOS"></a>CentOS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils nfs-utils-lib</span><br><span class="line">showmount -e 192.168.147.128 // 测试能不能挂载</span><br><span class="line">mkdir -p /home/www/wechat/</span><br><span class="line">mount 192.168.147.128:/home/www/wechat /home/www/wechat/</span><br></pre></td></tr></table></figure>
@@ -529,7 +530,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -594,6 +595,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>

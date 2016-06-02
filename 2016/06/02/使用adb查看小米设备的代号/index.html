@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion">
+<html class="theme-next pisces use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -84,29 +84,23 @@
 
 
 
-<meta name="description" content="下载MIUI线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。使用 adb tools 就可以轻松获取到
-1adb shell getprop | ack name
-12345678[gsm.sim.operator.default-name.2]: [][gsm.sim.operator.default-name]: [,中国移动][net.bt.name]: [Android][">
+<meta name="description" content="下载MIUI线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。使用 adb tools 就可以轻松获取到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用adb查看小米设备的代号">
 <meta property="og:url" content="http://cuminlo.github.io/2016/06/02/使用adb查看小米设备的代号/index.html">
 <meta property="og:site_name" content="CuminLo Blog">
-<meta property="og:description" content="下载MIUI线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。使用 adb tools 就可以轻松获取到
-1adb shell getprop | ack name
-12345678[gsm.sim.operator.default-name.2]: [][gsm.sim.operator.default-name]: [,中国移动][net.bt.name]: [Android][">
-<meta property="og:updated_time" content="2016-06-02T02:13:09.923Z">
+<meta property="og:description" content="下载MIUI线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。使用 adb tools 就可以轻松获取到">
+<meta property="og:updated_time" content="2016-06-02T05:53:15.718Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用adb查看小米设备的代号">
-<meta name="twitter:description" content="下载MIUI线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。使用 adb tools 就可以轻松获取到
-1adb shell getprop | ack name
-12345678[gsm.sim.operator.default-name.2]: [][gsm.sim.operator.default-name]: [,中国移动][net.bt.name]: [Android][">
+<meta name="twitter:description" content="下载MIUI线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。使用 adb tools 就可以轻松获取到">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Mist',
+    scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
@@ -295,6 +289,7 @@
 
       
         <p>下载<strong>MIUI</strong>线刷包需要对应的小米内部代号，但是在小米关于手机上是查询不到的。<br>使用 <code>adb tools</code> 就可以轻松获取到</p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell getprop | ack name</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[gsm.sim.operator.default-name.2]: []</span><br><span class="line">[gsm.sim.operator.default-name]: [,中国移动]</span><br><span class="line">[net.bt.name]: [Android]</span><br><span class="line">[net.hostname]: [RedmiNote3-hongmisho]</span><br><span class="line">[ro.build.version.all_codenames]: [REL]</span><br><span class="line">[ro.build.version.codename]: [REL]</span><br><span class="line">[ro.miui.ui.version.name]: [V7]</span><br><span class="line">[ro.product.name]: [hennessy]</span><br></pre></td></tr></table></figure>
 <p>比如 <code>[ro.product.name]: [hennessy]</code> 这个就是小米内部的代号了。红米 Note3 代号为 <code>hennessy</code></p>
@@ -501,7 +496,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
+    NexT.Pisces
   </a>
 </div>
 
@@ -566,6 +561,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
