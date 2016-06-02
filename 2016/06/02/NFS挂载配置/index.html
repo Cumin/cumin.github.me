@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://cuminlo.github.io/2016/06/02/NFS挂载配置/index.html">
 <meta property="og:site_name" content="CuminLo Blog">
 <meta property="og:description" content="服务端CentOS12345678910yum install -y nfs-utils nfs-utils-lib rpcbindvim /etc/exports 加入共享目录/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.*">
-<meta property="og:updated_time" content="2016-06-02T02:21:36.404Z">
+<meta property="og:updated_time" content="2016-06-02T05:25:12.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NFS挂载配置">
 <meta name="twitter:description" content="服务端CentOS12345678910yum install -y nfs-utils nfs-utils-lib rpcbindvim /etc/exports 加入共享目录/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.*">
@@ -316,15 +316,14 @@
 </li>
 </ul>
 <ul>
-<li>被防火墙搞掉<blockquote>
-<p>这个原因很多人都忽视了，在有严格要求的网络环境中，我们一般会关闭linux上的所有端口，当需要使用哪个端口的时候才会去打开。而NFS默认是使用111端口，所以我们先<br>要检测是否打开了这个端口，另外也要检查TCP_Wrappers的设定。</p>
+<li><p>被防火墙搞掉</p>
+<blockquote>
+<p>这个原因很多人都忽视了，在有严格要求的网络环境中，我们一般会关闭linux上的所有端口，当需要使用哪个端口的时候才会去打开。而NFS默认是使用111端口，所以我们先要检测是否打开了这个端口，另外也要检查TCP_Wrappers的设定。<br>重新设置防火墙,包括iptables与TCP_Wrappers,因为激活了<code>portmap</code>，所以端口<code>111</code>必须提供出去.因此在<code>iptablesrules</code>中，要增加:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables-AINPUT-pTCP –dport111-jACCEPT</span><br><span class="line">iptables-AINPUT-pUDP –dport111-jACCEPT</span><br></pre></td></tr></table></figure>
 </blockquote>
+<p>如果还不行，那就是<code>TCP_Wrappers</code>的问题，检查<code>/etc/hosts.deny</code>，如果有一行是<code>:ALL:ALL: deny</code>那就必须在<code>/etc/hosts.allow</code>中增加:<code>portmap:ALL:allow</code></p>
 </li>
 </ul>
-<blockquote>
-<p>重新设置防火墙,包括iptables与TCP_Wrappers,因为激活了<code>portmap</code>，所以端口<code>111</code>必须提供出去.因此在<code>iptablesrules</code>中，要增加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables-AINPUT-pTCP –dport111-jACCEPT</span><br><span class="line">iptables-AINPUT-pUDP –dport111-jACCEPT</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>如果还不行，那就是<code>TCP_Wrappers</code>的问题，检查<code>/etc/hosts.deny</code>，如果有一行是:<br>ALL:ALL: deny<br>那就必须在/etc/hosts.allow中增加:<br>portmap:ALL:allow</p>
 
       
     </div>
@@ -364,6 +363,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/02/安装Memcache/" rel="prev" title="安装Memcache">
+                安装Memcache <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -454,7 +457,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -464,7 +467,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

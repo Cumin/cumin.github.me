@@ -243,6 +243,123 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/02/安装Memcache/" itemprop="url">
+                  安装Memcache
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-02T13:27:42+08:00" content="2016-06-02">
+              2016-06-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/02/安装Memcache/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/安装Memcache/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Memcache是什么？"><a href="#Memcache是什么？" class="headerlink" title="Memcache是什么？"></a>Memcache是什么？</h1><p>Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。<br>Memcached是简单而强大的。它简单的设计促进迅速部署，易于发展所面临的问题，解决了很多大型数据缓存。它的API可供最流行的语言。<br>Memcache官方网站：<a href="http://memcached.org" target="_blank" rel="external">http://memcached.org</a></p>
+<h1 id="Memcached又是什么？"><a href="#Memcached又是什么？" class="headerlink" title="Memcached又是什么？"></a>Memcached又是什么？</h1><p>Memcache是该系统的项目名称，Memcached是该系统的主程序文件（字母d可以理解为daemon），以守护程序方式运行于一个或多个服务器中，随时接受客户端的连接操作，使用共享内存存取数据。</p>
+<h2 id="memcache客户端-php"><a href="#memcache客户端-php" class="headerlink" title="memcache客户端(php)"></a>memcache客户端(php)</h2><p>PHP有两个memcache客户端：php memcache和php memcached。<br>php memcache独立用php实现，是老客户端，从我们实践中已发现有多个问题，而且功能少，属性也可设置的少；<br><a href="http://pecl.php.net/package/memcache" target="_blank" rel="external">http://pecl.php.net/package/memcache</a><br>php memcached是基于原生的c的libmemcached的扩展，更加完善，建议替换为php memcached。<br><a href="http://pecl.php.net/package/memcached" target="_blank" rel="external">http://pecl.php.net/package/memcached</a></p>
+<h3 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h3><blockquote>
+<p><a href="http://drops.wooyun.org/papers/865" target="_blank" rel="external">http://drops.wooyun.org/papers/865</a> 参考这个安全信息<br><a href="http://blog.linuxeye.com/345.html" target="_blank" rel="external">http://blog.linuxeye.com/345.html</a></p>
+</blockquote>
+<h2 id="安装libevent-通常已经安装了-看看-usr-include-下有没"><a href="#安装libevent-通常已经安装了-看看-usr-include-下有没" class="headerlink" title="安装libevent 通常已经安装了 看看 /usr/include 下有没"></a>安装libevent 通常已经安装了 看看 <code>/usr/include</code> 下有没</h2><ul>
+<li><a href="http://monkey.org/~provos/libevent/" target="_blank" rel="external">http://monkey.org/~provos/libevent/</a></li>
+<li><a href="http://libevent.org/" target="_blank" rel="external">http://libevent.org/</a></li>
+<li><code>./configure --prefix=/usr/include/libevent</code></li>
+</ul>
+<h2 id="安装memcached"><a href="#安装memcached" class="headerlink" title="安装memcached"></a>安装memcached</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/memcached --with-libevent=/usr/include/libevent</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">ln -s /usr/local/memcached/bin/memcached /usr/bin/memcached</span><br><span class="line"></span><br><span class="line">cp -a memcached-install-dir/scripts/memcached.sysv /etc/init.d/memcached</span><br><span class="line"></span><br><span class="line">chkconfig memcached on</span><br><span class="line"></span><br><span class="line">mkdir -p /var/run/memcached</span><br></pre></td></tr></table></figure>
+<h2 id="启动memcached"><a href="#启动memcached" class="headerlink" title="启动memcached:"></a>启动memcached:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service memcached start</span><br><span class="line">Or</span><br><span class="line">memcached -p 11211 -l 127.0.0.1 -d -u root -P /var/run/memcached.pid -m 64M -c 1024</span><br></pre></td></tr></table></figure>
+<h2 id="参数的解释："><a href="#参数的解释：" class="headerlink" title="参数的解释："></a>参数的解释：</h2><blockquote>
+<p> -p memcached监听的TCP端口<br>  -l 监听的ip地址，127.0.0.1是本机，当然也可以写上你的服务器IP，如：10.0.0.10，这是我服务器的IP地址，如果你需要多个服务器都能够读取这台memcached的缓存数据，那么就必须设定这个ip<br>  -d 以daemon方式运行，将程序放入后台<br>  -u memcached的运行用户，我设定的是nobody<br>  -P memcached的pid文件路径<br>  -m memcached可以使用的最大内存数量<br>  -c memcached同时可以接受的最大的连接数<br>如果你希望以socket方式来访问memcached，那么在启动的时候就必须去掉 -l和-p参数，并加上-s参数：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-s memcached的socket文件路径</span><br><span class="line">iptables 指定 ip 可以访问</span><br><span class="line">vim /etc/sysconfig/iptables</span><br><span class="line">-A INPUT -p tcp -s 10.138.106.118 --dport 11211 -j ACCEPT</span><br><span class="line">-A INPUT -p udp -s 10.138.106.118 --dport 11211 -j ACCEP</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/02/NFS挂载配置/" itemprop="url">
                   NFS挂载配置
                 </a>
@@ -322,15 +439,14 @@
 </li>
 </ul>
 <ul>
-<li>被防火墙搞掉<blockquote>
-<p>这个原因很多人都忽视了，在有严格要求的网络环境中，我们一般会关闭linux上的所有端口，当需要使用哪个端口的时候才会去打开。而NFS默认是使用111端口，所以我们先<br>要检测是否打开了这个端口，另外也要检查TCP_Wrappers的设定。</p>
+<li><p>被防火墙搞掉</p>
+<blockquote>
+<p>这个原因很多人都忽视了，在有严格要求的网络环境中，我们一般会关闭linux上的所有端口，当需要使用哪个端口的时候才会去打开。而NFS默认是使用111端口，所以我们先要检测是否打开了这个端口，另外也要检查TCP_Wrappers的设定。<br>重新设置防火墙,包括iptables与TCP_Wrappers,因为激活了<code>portmap</code>，所以端口<code>111</code>必须提供出去.因此在<code>iptablesrules</code>中，要增加:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables-AINPUT-pTCP –dport111-jACCEPT</span><br><span class="line">iptables-AINPUT-pUDP –dport111-jACCEPT</span><br></pre></td></tr></table></figure>
 </blockquote>
+<p>如果还不行，那就是<code>TCP_Wrappers</code>的问题，检查<code>/etc/hosts.deny</code>，如果有一行是<code>:ALL:ALL: deny</code>那就必须在<code>/etc/hosts.allow</code>中增加:<code>portmap:ALL:allow</code></p>
 </li>
 </ul>
-<blockquote>
-<p>重新设置防火墙,包括iptables与TCP_Wrappers,因为激活了<code>portmap</code>，所以端口<code>111</code>必须提供出去.因此在<code>iptablesrules</code>中，要增加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables-AINPUT-pTCP –dport111-jACCEPT</span><br><span class="line">iptables-AINPUT-pUDP –dport111-jACCEPT</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>如果还不行，那就是<code>TCP_Wrappers</code>的问题，检查<code>/etc/hosts.deny</code>，如果有一行是:<br>ALL:ALL: deny<br>那就必须在/etc/hosts.allow中增加:<br>portmap:ALL:allow</p>
 
           
         
@@ -741,7 +857,7 @@
               
                 
                 <a class="post-title-link" href="/2016/05/31/git分支操作/" itemprop="url">
-                  git分支操作
+                  Git分支操作
                 </a>
               
             
@@ -855,7 +971,7 @@
               
                 
                 <a class="post-title-link" href="/2016/05/31/git常用别名/" itemprop="url">
-                  git常用别名
+                  Git常用别名
                 </a>
               
             
@@ -956,7 +1072,7 @@
               
                 
                 <a class="post-title-link" href="/2016/05/31/给git设置代理/" itemprop="url">
-                  给git设置代理
+                  给Git设置代理
                 </a>
               
             
@@ -1058,7 +1174,7 @@
               
                 
                 <a class="post-title-link" href="/2016/05/31/git-remote-url/" itemprop="url">
-                  Git Set remote url
+                  Git设置远程仓库Url
                 </a>
               
             
@@ -1108,12 +1224,11 @@
       
         
           
-            <h1 id="给git库换一个remote-url"><a href="#给git库换一个remote-url" class="headerlink" title="给git库换一个remote url"></a>给git库换一个remote url</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@xxx.xxx.xxx.xxx:/git/xxx.git</span><br></pre></td></tr></table></figure>
-<h1 id="本地新建的库增加-remote-url"><a href="#本地新建的库增加-remote-url" class="headerlink" title="本地新建的库增加 remote url"></a>本地新建的库增加 remote url</h1><p>有时候我们都是在本地新建一个目录,然后执行 <code>git init</code> 再开始写代码.</p>
-<p>然后我们想开源了,就又去 <code>github</code> 上新建了一个项目.</p>
-<p>那么怎么才能把本地新建的库和 <code>github</code> 上的对应起来呢?</p>
-<p>在本地仓库下执行以下命令 url 替换为 你的地址</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. git remote add origin https://github.com/Cumin/XXX.git</span><br><span class="line">2. git branch --set-upstream-to=origin/masteer master</span><br><span class="line">3. git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
+            <p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。</p>
+<h1 id="查看当前远程仓库地址"><a href="#查看当前远程仓库地址" class="headerlink" title="查看当前远程仓库地址"></a>查看当前远程仓库地址</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  https://github.com/getlantern/lantern.git (fetch)</span><br><span class="line">origin  https://github.com/getlantern/lantern.git (push)</span><br></pre></td></tr></table></figure>
+<h1 id="更换一个-remote-url"><a href="#更换一个-remote-url" class="headerlink" title="更换一个 remote url"></a>更换一个 remote url</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@xxx.xxx.xxx.xxx:/git/xxx.git</span><br></pre></td></tr></table></figure>
+<h1 id="新增一个增加-remote-url"><a href="#新增一个增加-remote-url" class="headerlink" title="新增一个增加 remote url"></a>新增一个增加 remote url</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. git remote add origin https://github.com/Cumin/XXX.git</span><br><span class="line">2. git branch --set-upstream-to=origin/masteer master</span><br><span class="line">3. git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
 <p>以上命令执行完就ok了</p>
 <p><code>git pull</code></p>
 
@@ -1272,110 +1387,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/31/git清空刚刚修改的文件/" itemprop="url">
-                  git清空刚刚修改的文件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-31T19:32:32+08:00" content="2016-05-31">
-              2016-05-31
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/31/git清空刚刚修改的文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/git清空刚刚修改的文件/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="恢复文件到HEAD"><a href="#恢复文件到HEAD" class="headerlink" title="恢复文件到HEAD"></a>恢复文件到HEAD</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout &lt;file&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="但是有的时候-我刚刚添加了一些文件，但是现在不要了。（危险操作）"><a href="#但是有的时候-我刚刚添加了一些文件，但是现在不要了。（危险操作）" class="headerlink" title="但是有的时候 我刚刚添加了一些文件，但是现在不要了。（危险操作）"></a>但是有的时候 我刚刚添加了一些文件，但是现在不要了。（危险操作）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -df</span><br></pre></td></tr></table></figure>
-<p>OR</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git stash</span><br><span class="line">git stash clear</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1421,7 +1432,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1431,7 +1442,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

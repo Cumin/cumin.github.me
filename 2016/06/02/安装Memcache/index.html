@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Git," />
+  <meta name="keywords" content="Linux,Memcache," />
 
 
 
@@ -84,25 +84,16 @@
 
 
 
-<meta name="description" content="为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。
-查看当前远程仓库地址1git remote -v
-12origin  https://github.com/getlantern/lantern.git (fetch)origin  https://github.com/getlantern/lantern.git (push)
-更换一个 rem">
+<meta name="description" content="Memcache是什么？Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。Memcached是简单而强大的。它简单的设计促进迅速部署，易于发展所面临的问题，解决了很多大型数据缓存。它的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git设置远程仓库Url">
-<meta property="og:url" content="http://cuminlo.github.io/2016/05/31/git-remote-url/index.html">
+<meta property="og:title" content="安装Memcache">
+<meta property="og:url" content="http://cuminlo.github.io/2016/06/02/安装Memcache/index.html">
 <meta property="og:site_name" content="CuminLo Blog">
-<meta property="og:description" content="为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。
-查看当前远程仓库地址1git remote -v
-12origin  https://github.com/getlantern/lantern.git (fetch)origin  https://github.com/getlantern/lantern.git (push)
-更换一个 rem">
-<meta property="og:updated_time" content="2016-06-02T05:23:01.539Z">
+<meta property="og:description" content="Memcache是什么？Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。Memcached是简单而强大的。它简单的设计促进迅速部署，易于发展所面临的问题，解决了很多大型数据缓存。它的">
+<meta property="og:updated_time" content="2016-06-02T05:35:14.975Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git设置远程仓库Url">
-<meta name="twitter:description" content="为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。
-查看当前远程仓库地址1git remote -v
-12origin  https://github.com/getlantern/lantern.git (fetch)origin  https://github.com/getlantern/lantern.git (push)
-更换一个 rem">
+<meta name="twitter:title" content="安装Memcache">
+<meta name="twitter:description" content="Memcache是什么？Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。Memcached是简单而强大的。它简单的设计促进迅速部署，易于发展所面临的问题，解决了很多大型数据缓存。它的">
 
 
 
@@ -120,7 +111,7 @@
   };
 </script>
 
-  <title> Git设置远程仓库Url | CuminLo Blog </title>
+  <title> 安装Memcache | CuminLo Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -250,7 +241,7 @@
             
             
               
-                Git设置远程仓库Url
+                安装Memcache
               
             
           </h1>
@@ -262,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-31T19:37:55+08:00" content="2016-05-31">
-              2016-05-31
+            <time itemprop="dateCreated" datetime="2016-06-02T13:27:42+08:00" content="2016-06-02">
+              2016-06-02
             </time>
           </span>
 
@@ -273,8 +264,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/31/git-remote-url/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/git-remote-url/" itemprop="commentsCount"></span>
+                <a href="/2016/06/02/安装Memcache/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/安装Memcache/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -297,13 +288,23 @@
       
 
       
-        <p>为了便于管理，Git要求每个远程主机都必须指定一个主机名。git remote命令就用于管理主机名。</p>
-<h1 id="查看当前远程仓库地址"><a href="#查看当前远程仓库地址" class="headerlink" title="查看当前远程仓库地址"></a>查看当前远程仓库地址</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  https://github.com/getlantern/lantern.git (fetch)</span><br><span class="line">origin  https://github.com/getlantern/lantern.git (push)</span><br></pre></td></tr></table></figure>
-<h1 id="更换一个-remote-url"><a href="#更换一个-remote-url" class="headerlink" title="更换一个 remote url"></a>更换一个 remote url</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@xxx.xxx.xxx.xxx:/git/xxx.git</span><br></pre></td></tr></table></figure>
-<h1 id="新增一个增加-remote-url"><a href="#新增一个增加-remote-url" class="headerlink" title="新增一个增加 remote url"></a>新增一个增加 remote url</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. git remote add origin https://github.com/Cumin/XXX.git</span><br><span class="line">2. git branch --set-upstream-to=origin/masteer master</span><br><span class="line">3. git push --set-upstream origin master</span><br></pre></td></tr></table></figure>
-<p>以上命令执行完就ok了</p>
-<p><code>git pull</code></p>
+        <h1 id="Memcache是什么？"><a href="#Memcache是什么？" class="headerlink" title="Memcache是什么？"></a>Memcache是什么？</h1><p>Memcache是一个自由和开放源代码、高性能、分配的内存对象缓存系统。用于加速动态web应用程序，减轻数据库负载。它可以应对任意多个连接，使用非阻塞的网络IO。由于它的工作机制是在内存中开辟一块空间，然后建立一个Hash表，Memcached自管理这些Hash表。<br>Memcached是简单而强大的。它简单的设计促进迅速部署，易于发展所面临的问题，解决了很多大型数据缓存。它的API可供最流行的语言。<br>Memcache官方网站：<a href="http://memcached.org" target="_blank" rel="external">http://memcached.org</a></p>
+<h1 id="Memcached又是什么？"><a href="#Memcached又是什么？" class="headerlink" title="Memcached又是什么？"></a>Memcached又是什么？</h1><p>Memcache是该系统的项目名称，Memcached是该系统的主程序文件（字母d可以理解为daemon），以守护程序方式运行于一个或多个服务器中，随时接受客户端的连接操作，使用共享内存存取数据。</p>
+<h2 id="memcache客户端-php"><a href="#memcache客户端-php" class="headerlink" title="memcache客户端(php)"></a>memcache客户端(php)</h2><p>PHP有两个memcache客户端：php memcache和php memcached。<br>php memcache独立用php实现，是老客户端，从我们实践中已发现有多个问题，而且功能少，属性也可设置的少；<br><a href="http://pecl.php.net/package/memcache" target="_blank" rel="external">http://pecl.php.net/package/memcache</a><br>php memcached是基于原生的c的libmemcached的扩展，更加完善，建议替换为php memcached。<br><a href="http://pecl.php.net/package/memcached" target="_blank" rel="external">http://pecl.php.net/package/memcached</a></p>
+<h3 id="参考信息"><a href="#参考信息" class="headerlink" title="参考信息"></a>参考信息</h3><blockquote>
+<p><a href="http://drops.wooyun.org/papers/865" target="_blank" rel="external">http://drops.wooyun.org/papers/865</a> 参考这个安全信息<br><a href="http://blog.linuxeye.com/345.html" target="_blank" rel="external">http://blog.linuxeye.com/345.html</a></p>
+</blockquote>
+<h2 id="安装libevent-通常已经安装了-看看-usr-include-下有没"><a href="#安装libevent-通常已经安装了-看看-usr-include-下有没" class="headerlink" title="安装libevent 通常已经安装了 看看 /usr/include 下有没"></a>安装libevent 通常已经安装了 看看 <code>/usr/include</code> 下有没</h2><ul>
+<li><a href="http://monkey.org/~provos/libevent/" target="_blank" rel="external">http://monkey.org/~provos/libevent/</a></li>
+<li><a href="http://libevent.org/" target="_blank" rel="external">http://libevent.org/</a></li>
+<li><code>./configure --prefix=/usr/include/libevent</code></li>
+</ul>
+<h2 id="安装memcached"><a href="#安装memcached" class="headerlink" title="安装memcached"></a>安装memcached</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/memcached --with-libevent=/usr/include/libevent</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line">ln -s /usr/local/memcached/bin/memcached /usr/bin/memcached</span><br><span class="line"></span><br><span class="line">cp -a memcached-install-dir/scripts/memcached.sysv /etc/init.d/memcached</span><br><span class="line"></span><br><span class="line">chkconfig memcached on</span><br><span class="line"></span><br><span class="line">mkdir -p /var/run/memcached</span><br></pre></td></tr></table></figure>
+<h2 id="启动memcached"><a href="#启动memcached" class="headerlink" title="启动memcached:"></a>启动memcached:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service memcached start</span><br><span class="line">Or</span><br><span class="line">memcached -p 11211 -l 127.0.0.1 -d -u root -P /var/run/memcached.pid -m 64M -c 1024</span><br></pre></td></tr></table></figure>
+<h2 id="参数的解释："><a href="#参数的解释：" class="headerlink" title="参数的解释："></a>参数的解释：</h2><blockquote>
+<p> -p memcached监听的TCP端口<br>  -l 监听的ip地址，127.0.0.1是本机，当然也可以写上你的服务器IP，如：10.0.0.10，这是我服务器的IP地址，如果你需要多个服务器都能够读取这台memcached的缓存数据，那么就必须设定这个ip<br>  -d 以daemon方式运行，将程序放入后台<br>  -u memcached的运行用户，我设定的是nobody<br>  -P memcached的pid文件路径<br>  -m memcached可以使用的最大内存数量<br>  -c memcached同时可以接受的最大的连接数<br>如果你希望以socket方式来访问memcached，那么在启动的时候就必须去掉 -l和-p参数，并加上-s参数：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-s memcached的socket文件路径</span><br><span class="line">iptables 指定 ip 可以访问</span><br><span class="line">vim /etc/sysconfig/iptables</span><br><span class="line">-A INPUT -p tcp -s 10.138.106.118 --dport 11211 -j ACCEPT</span><br><span class="line">-A INPUT -p udp -s 10.138.106.118 --dport 11211 -j ACCEP</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -325,7 +326,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag">#Git</a>
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/Memcache/" rel="tag">#Memcache</a>
           
         </div>
       
@@ -334,17 +337,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/31/编译安装Git/" rel="next" title="编译安装Git">
-                <i class="fa fa-chevron-left"></i> 编译安装Git
+              <a href="/2016/06/02/NFS挂载配置/" rel="next" title="NFS挂载配置">
+                <i class="fa fa-chevron-left"></i> NFS挂载配置
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/31/给git设置代理/" rel="prev" title="给Git设置代理">
-                给Git设置代理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -359,10 +358,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/31/git-remote-url/"
-     data-title="Git设置远程仓库Url"
+        <div class="ds-share flat" data-thread-key="2016/06/02/安装Memcache/"
+     data-title="安装Memcache"
      data-content=""
-     data-url="http://cuminlo.github.io/2016/05/31/git-remote-url/">
+     data-url="http://cuminlo.github.io/2016/06/02/安装Memcache/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -389,8 +388,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/31/git-remote-url/"
-           data-title="Git设置远程仓库Url" data-url="http://cuminlo.github.io/2016/05/31/git-remote-url/">
+      <div class="ds-thread" data-thread-key="2016/06/02/安装Memcache/"
+           data-title="安装Memcache" data-url="http://cuminlo.github.io/2016/06/02/安装Memcache/">
       </div>
     
   </div>
@@ -474,7 +473,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查看当前远程仓库地址"><span class="nav-number">1.</span> <span class="nav-text">查看当前远程仓库地址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#更换一个-remote-url"><span class="nav-number">2.</span> <span class="nav-text">更换一个 remote url</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新增一个增加-remote-url"><span class="nav-number">3.</span> <span class="nav-text">新增一个增加 remote url</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Memcache是什么？"><span class="nav-number">1.</span> <span class="nav-text">Memcache是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memcached又是什么？"><span class="nav-number">2.</span> <span class="nav-text">Memcached又是什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#memcache客户端-php"><span class="nav-number">2.1.</span> <span class="nav-text">memcache客户端(php)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考信息"><span class="nav-number">2.1.1.</span> <span class="nav-text">参考信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装libevent-通常已经安装了-看看-usr-include-下有没"><span class="nav-number">2.2.</span> <span class="nav-text">安装libevent 通常已经安装了 看看 /usr/include 下有没</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装memcached"><span class="nav-number">2.3.</span> <span class="nav-text">安装memcached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动memcached"><span class="nav-number">2.4.</span> <span class="nav-text">启动memcached:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数的解释："><span class="nav-number">2.5.</span> <span class="nav-text">参数的解释：</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
