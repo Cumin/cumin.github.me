@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="空白," />
+  <meta name="keywords" content="Linux,NFS," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="Hi,
-博客就这么开通了。
-记录自己随时想记录的。">
+<meta name="description" content="服务端CentOS12345678910yum install -y nfs-utils nfs-utils-lib rpcbindvim /etc/exports 加入共享目录/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.*">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇的开始">
-<meta property="og:url" content="http://cuminlo.github.io/2016/05/31/first-post/index.html">
+<meta property="og:title" content="NFS挂载配置">
+<meta property="og:url" content="http://cuminlo.github.io/2016/06/02/NFS挂载配置/index.html">
 <meta property="og:site_name" content="CuminLo Blog">
-<meta property="og:description" content="Hi,
-博客就这么开通了。
-记录自己随时想记录的。">
-<meta property="og:updated_time" content="2016-05-31T10:35:29.194Z">
+<meta property="og:description" content="服务端CentOS12345678910yum install -y nfs-utils nfs-utils-lib rpcbindvim /etc/exports 加入共享目录/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.*">
+<meta property="og:updated_time" content="2016-06-02T02:21:36.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第一篇的开始">
-<meta name="twitter:description" content="Hi,
-博客就这么开通了。
-记录自己随时想记录的。">
+<meta name="twitter:title" content="NFS挂载配置">
+<meta name="twitter:description" content="服务端CentOS12345678910yum install -y nfs-utils nfs-utils-lib rpcbindvim /etc/exports 加入共享目录/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.*">
 
 
 
@@ -117,7 +111,7 @@
   };
 </script>
 
-  <title> 第一篇的开始 | CuminLo Blog </title>
+  <title> NFS挂载配置 | CuminLo Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -247,7 +241,7 @@
             
             
               
-                第一篇的开始
+                NFS挂载配置
               
             
           </h1>
@@ -259,8 +253,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-31T18:29:55+08:00" content="2016-05-31">
-              2016-05-31
+            <time itemprop="dateCreated" datetime="2016-06-02T10:20:10+08:00" content="2016-06-02">
+              2016-06-02
             </time>
           </span>
 
@@ -270,8 +264,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/31/first-post/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/31/first-post/" itemprop="commentsCount"></span>
+                <a href="/2016/06/02/NFS挂载配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/NFS挂载配置/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -294,9 +288,43 @@
       
 
       
-        <p>Hi,</p>
-<p>博客就这么开通了。</p>
-<p>记录自己随时想记录的。</p>
+        <h1 id="服务端"><a href="#服务端" class="headerlink" title="服务端"></a>服务端</h1><h2 id="CentOS"><a href="#CentOS" class="headerlink" title="CentOS"></a>CentOS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils nfs-utils-lib rpcbind</span><br><span class="line">vim /etc/exports 加入共享目录</span><br><span class="line"></span><br><span class="line">/home 192.168.147.128(rw,sync,no_root_squash,no_subtree_check) --允许从192.168.147.128挂载 如果同一个网段就设置成 192.168.147.* --</span><br><span class="line"></span><br><span class="line">chkconfig nfs on</span><br><span class="line">chkconfig rpcbind  on</span><br><span class="line"></span><br><span class="line">service rpcbind start</span><br><span class="line">service nfs start</span><br></pre></td></tr></table></figure>
+<h2 id="检查共享的目录-对不对"><a href="#检查共享的目录-对不对" class="headerlink" title="检查共享的目录 对不对"></a>检查共享的目录 对不对</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exportfs</span><br></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>修改了 <code>/etc/exports</code> 之后并不需要重新启动服务，只要重新加载就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">exportfs[-aruv]</span><br><span class="line">参数 含义</span><br><span class="line">a 全部挂载(或卸载)/etc/exports档案内的设定</span><br><span class="line">r 重新挂载/etc/exports 里面的设定，也同步的更新/etc/exports和/var/lib/nfs/xtab里面的内容</span><br><span class="line">u 卸载某一目录</span><br><span class="line">v 在export的时候，将分享的目录显示到荧屏上</span><br><span class="line">exportfs -a        // 全部挂载</span><br><span class="line">#exportfs -rv     //重新export一次</span><br><span class="line">#exportfs -au    //全部卸载</span><br></pre></td></tr></table></figure></p>
+<h1 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h1><h2 id="CentOS-1"><a href="#CentOS-1" class="headerlink" title="CentOS"></a>CentOS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils nfs-utils-lib</span><br><span class="line">showmount -e 192.168.147.128 // 测试能不能挂载</span><br><span class="line">mkdir -p /home/www/wechat/</span><br><span class="line">mount 192.168.147.128:/home/www/wechat /home/www/wechat/</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df -h	查看挂载</span><br><span class="line">mount -a 挂载全部</span><br></pre></td></tr></table></figure>
+<h3 id="取消挂载"><a href="#取消挂载" class="headerlink" title="取消挂载"></a>取消挂载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount 192.168.147.128:/home/www/wechat</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果遇到：umount.nfs: /usr/local/test: device is busy<br>fuser -m -v /mount/path/to</p>
+</blockquote>
+<h3 id="常见NFS故障解决"><a href="#常见NFS故障解决" class="headerlink" title="常见NFS故障解决"></a>常见NFS故障解决</h3><ul>
+<li>can’t contactportmapper: RPC:Remotesystem error-Connection refused：<blockquote>
+<p>出现这个错误信息是由于SEVER端的PORTMAP没有启动。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>mountclntudp_create: RPC: Programnotregistered：</p>
+<blockquote>
+<p>NFS没有启动起来，可以用showmout-ehost命令来检查NFSSERVER是否正常启动起来。</p>
+</blockquote>
+</li>
+<li><p>mount: localhost:/home/test failed, reason given by server:Permission denied：</p>
+<blockquote>
+<p>这个提示是当client要mountnfsserver时可能出现的提示，意思是说本机没有权限去mount nfsserver上的目录。解决方法当然是去修改NFSSERVER咯。</p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li>被防火墙搞掉<blockquote>
+<p>这个原因很多人都忽视了，在有严格要求的网络环境中，我们一般会关闭linux上的所有端口，当需要使用哪个端口的时候才会去打开。而NFS默认是使用111端口，所以我们先<br>要检测是否打开了这个端口，另外也要检查TCP_Wrappers的设定。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>重新设置防火墙,包括iptables与TCP_Wrappers,因为激活了<code>portmap</code>，所以端口<code>111</code>必须提供出去.因此在<code>iptablesrules</code>中，要增加:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables-AINPUT-pTCP –dport111-jACCEPT</span><br><span class="line">iptables-AINPUT-pUDP –dport111-jACCEPT</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>如果还不行，那就是<code>TCP_Wrappers</code>的问题，检查<code>/etc/hosts.deny</code>，如果有一行是:<br>ALL:ALL: deny<br>那就必须在/etc/hosts.allow中增加:<br>portmap:ALL:allow</p>
 
       
     </div>
@@ -318,7 +346,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/空白/" rel="tag">#空白</a>
+            <a href="/tags/Linux/" rel="tag">#Linux</a>
+          
+            <a href="/tags/NFS/" rel="tag">#NFS</a>
           
         </div>
       
@@ -327,17 +357,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/31/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2016/06/02/使用adb工具常见错误提示/" rel="next" title="使用adb工具常见错误提示">
+                <i class="fa fa-chevron-left"></i> 使用adb工具常见错误提示
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/31/git免密码/" rel="prev" title="Git免密码操作">
-                Git免密码操作 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -352,10 +378,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/05/31/first-post/"
-     data-title="第一篇的开始"
+        <div class="ds-share flat" data-thread-key="2016/06/02/NFS挂载配置/"
+     data-title="NFS挂载配置"
      data-content=""
-     data-url="http://cuminlo.github.io/2016/05/31/first-post/">
+     data-url="http://cuminlo.github.io/2016/06/02/NFS挂载配置/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -382,8 +408,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/31/first-post/"
-           data-title="第一篇的开始" data-url="http://cuminlo.github.io/2016/05/31/first-post/">
+      <div class="ds-thread" data-thread-key="2016/06/02/NFS挂载配置/"
+           data-title="NFS挂载配置" data-url="http://cuminlo.github.io/2016/06/02/NFS挂载配置/">
       </div>
     
   </div>
@@ -467,7 +493,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#服务端"><span class="nav-number">1.</span> <span class="nav-text">服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS"><span class="nav-number">1.1.</span> <span class="nav-text">CentOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查共享的目录-对不对"><span class="nav-number">1.2.</span> <span class="nav-text">检查共享的目录 对不对</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.2.1.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端"><span class="nav-number">2.</span> <span class="nav-text">客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CentOS-1"><span class="nav-number">2.1.</span> <span class="nav-text">CentOS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#取消挂载"><span class="nav-number">2.1.1.</span> <span class="nav-text">取消挂载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见NFS故障解决"><span class="nav-number">2.1.2.</span> <span class="nav-text">常见NFS故障解决</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
